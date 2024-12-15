@@ -9,21 +9,18 @@ class OrderDetail extends Model
 {
     protected $fillable = [
         'order_id',
-        'first_name',
-        'last_name',
-        'phone',
-        'street',
-        'city',
-        'state',
-        'zip_code',
+        'product_id',
+        'quantity',
+        'unit_amount',
+        'total_amount',
     ];
 
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
-    public function getFullName(): string
+    public function product(): BelongsTo
     {
-        return "{$this->first_name} {$this->last_name}";
+        return $this->belongsTo(Product::class);
     }
 }

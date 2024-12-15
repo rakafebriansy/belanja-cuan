@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('quantity')->default(1);
             $table->decimal('unit_amount', 10, 2);
             $table->decimal('total_amount', 10, 2);
+            $table->timestamps();
         });
     }
 

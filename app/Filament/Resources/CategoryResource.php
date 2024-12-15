@@ -37,12 +37,12 @@ class CategoryResource extends Resource
                         TextInput::make('name')
                         ->required()
                         ->maxLength(255)
-                        ->live(onBlur:true) //enable livewire data-binding
+                        ->live(onBlur:true) //enable livewire data-binding (server-side)
                         ->afterStateUpdated(fn(string $operation, $state, \Filament\Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null), //update slug form while this form is change
                         TextInput::make('slug')
                         ->required()
                         ->maxLength(255)
-                        ->disabled()
+                        ->readOnly()
                         ->dehydrated()
                         ->unique(Category::class, 'slug', ignoreRecord:true),
                         FileUpload::make('image')

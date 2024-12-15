@@ -41,7 +41,7 @@ class BrandResource extends Resource
                     TextInput::make('slug')
                     ->required()
                     ->maxLength(255)
-                    ->disabled()
+                    ->readOnly()
                     ->dehydrated()
                     ->unique(Brand::class, 'slug', ignoreRecord:true),
                     FileUpload::make('image')

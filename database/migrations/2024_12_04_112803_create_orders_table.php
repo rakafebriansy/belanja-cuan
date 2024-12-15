@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->decimal('grand_total',10, 2);
             $table->string('payment_method');
+            $table->string('payment_status');
             $table->enum('status',['ordered','processing','shipped','delivered','canceled'])->default('ordered');
             $table->string('currency');
-            $table->decimal('shipping_amount', 10, 2);
-            $table->string('shipping_method');
+            $table->decimal('shipping_amount', 10, 2)->nullable();
+            $table->string('shipping_method')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });

@@ -51,7 +51,7 @@ class ProductResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->unique(Product::class, 'slug', ignoreRecord: true)
-                        ->disabled()
+                        ->readOnly()
                         ->dehydrated(),
                         MarkdownEditor::make('description')
                         ->columnSpanFull() // column span penuh

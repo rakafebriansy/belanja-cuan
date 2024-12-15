@@ -9,18 +9,21 @@ class Address extends Model
 {
     protected $fillable = [
         'order_id',
-        'product_id',
-        'quantity',
-        'unit_amount',
-        'total_amount',
+        'first_name',
+        'last_name',
+        'phone',
+        'street',
+        'city',
+        'state',
+        'zip_code',
     ];
 
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
-    public function product(): BelongsTo
+    public function getFullName(): string
     {
-        return $this->belongsTo(Product::class);
+        return "{$this->first_name} {$this->last_name}";
     }
 }
