@@ -26,6 +26,10 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
+    protected static ?string $recordTitleAttribute = 'name'; // memungkinan global search untuk resource berdasarkan satu kolom
+
+    protected static ?int $navigationSort = 1; // mengatur urutan navigation dari resource pada sidebar 
+
     public static function form(Form $form): Form
     {
         return $form
@@ -78,6 +82,14 @@ class UserResource extends Resource
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getGloballySearchableAttributes(): array 
+    {
+        return [
+            'name',
+            'email'
         ];
     }
 }
