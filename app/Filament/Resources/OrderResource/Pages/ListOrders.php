@@ -29,7 +29,7 @@ class ListOrders extends ListRecords
     public function getTabs(): array // function untuk menampilkan widget pada header list
     {
         return [
-            null => Tab::make('All'),
+            null => Tab::make('All'), // null berarti tanpa filter
             'new' => Tab::make()->query(fn ($query) => $query->where('status','ordered')),
             'processing' => Tab::make()->query(fn ($query) => $query->where('status','processing')),
             'shipped' => Tab::make()->query(fn ($query) => $query->where('status','shipped')),
