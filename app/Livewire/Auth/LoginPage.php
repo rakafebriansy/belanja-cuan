@@ -20,8 +20,8 @@ class LoginPage extends Component
             'email' => $this->email,
             'password' => $this->password,
         ])) {
-            $this->addError('password', 'These credentials don\'t match our records.');
-            // session()->flash('error','Invalid Credentials.');
+            // $this->addError('password', 'These credentials don\'t match our records.');
+            session()->flash('error','Invalid Credentials.');
             return;
         }
 
